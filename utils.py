@@ -56,13 +56,3 @@ Displays an image with opencv for durationMillis milliseconds
 def showImg(name, matrix, durationMillis = 0):
     cv.imshow(name, matrix)
     cv.waitKey(durationMillis)
-
-"""
-Run tesseract to perform optical character recognition (OCR)
-"""
-def run_tesseract(filename):
-    mkdir("bin/extracted/")
-    reader = easyocr.Reader(["ru", "en"])
-    image = Image.open(filename)
-    text = reader.readtext(image,detail=0)
-    return text
